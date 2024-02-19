@@ -114,6 +114,7 @@ def video_to_text(video_path):
             sequence.append(keypoints)
             sequence = sequence[-30:]
 
+            # predict algo frame counter
             if len(sequence) == 30:
                 res = model.predict(np.expand_dims(sequence, axis=0))[0]
                 print(actions[np.argmax(res)])
